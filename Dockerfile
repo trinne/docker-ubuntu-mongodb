@@ -23,4 +23,4 @@ RUN mkdir -p /data/db
 # Expose port 27017 from the container to the host
 EXPOSE 27017
 
-ENTRYPOINT ["/user/bin/mongod"]
+ENTRYPOINT ["/usr/bin/mongod"]
