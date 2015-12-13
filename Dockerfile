@@ -27,7 +27,7 @@ RUN mkdir -p /logs/mongodb
 RUN mkdir -p /etc
 
 # Copy the configuration to the container
-COPY ./mongod.conf /etc
+COPY ./mongod.conf /etc/
 
 # Expose port 27017 from the container to the host
 EXPOSE 27017
