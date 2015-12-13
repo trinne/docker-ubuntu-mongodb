@@ -20,7 +20,16 @@ RUN echo "mongodb-org-tools hold" | dpkg --set-selections
 # Create the MongoDB data directory
 RUN mkdir -p /data/db
 
+# Create the MongoDB log directory
+RUN mkdir -p /logs/mongodb
+
+# Create the MongoDB config directory
+RUN mkdir -p /etc
+
+# Copy the configuration to the container
+COPY ./mongod.conf /etc
+
 # Expose port 27017 from the container to the host
 EXPOSE 27017
 
-ENTRYPOINT ["/usr/bin/mongod"]
+ENTRYPOINT ["/usr/bin/mongod", "-f", "/config/mongodb/mongod.conf"]
