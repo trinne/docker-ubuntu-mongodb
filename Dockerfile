@@ -24,12 +24,12 @@ RUN mkdir -p /data/db
 RUN mkdir -p /logs/mongodb
 
 # Create the MongoDB config directory
-RUN mkdir -p /etc
+RUN mkdir -p /config/mongodb
 
 # Copy the configuration to the container
-COPY ./mongod.conf /etc/
+COPY ./mongod.conf /config/mongodb/
 
 # Expose port 27017 from the container to the host
 EXPOSE 27017
 
-ENTRYPOINT ["/usr/bin/mongod", "-f", "/config/mongodb/mongod.conf"]
+ENTRYPOINT ["/usr/bin/mongod", "--config", "/config/mongodb/mongod.conf"]
