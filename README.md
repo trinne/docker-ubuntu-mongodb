@@ -34,3 +34,6 @@ $ mongo --port 27017
 # Usage: mongo --port <port you get from `docker ps`>  --host <ip address from `docker-machine ip VM_NAME`>
 $ mongo --port 27017 --host 192.168.59.103
 ```
+
+## Accessing a container
+You can run `docker exec -i -t <container_id> bash` to access a container and run mongodb commands in it.
